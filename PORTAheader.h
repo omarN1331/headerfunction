@@ -32,70 +32,65 @@
 #define DEN_A (*((volatile u32*)(portA + DEN_Offset)))
 
 
-void GPIO(uint32_t PORT, uint32_t PIN, uint32_t DIR)
+void GPIO(char PORT, uint32_t PIN, uint32_t DIR)
 {
-	uint32_t x;
-	if (PORT == A)
-	{
-		x = DATA_A;
-	}
-	if (PORT == B)
-	{
-		x = DATA_B;
-	}
-	if (PORT == C)
-	{
-		x = DATA_C;
-	}
-	if (PORT == D)
-	{
-		x = DATA_D;
-	}
-	if (PORT == E)
-	{
-		x = DATA_E;
-	}
-	if (PORT == F)
-	{
-		x = DATA_F;
-	}
-	switch (PIN)
-	{
-	case 0: x |= (1 << 0); break;
-	case 1: x |= (1 << 1); break;
-	case 2: x |= (1 << 2); break;
-	case 3: x |= (1 << 3); break;
-	case 4: x |= (1 << 4); break;
-	case 5: x |= (1 << 5); break;
-	case 6: x |= (1 << 6); break;
-	case 7: x |= (1 << 7); break;
-	}
+   uint32_t x;
+   if (PORT == 'A')
+   {
+       x = DATA_A;
+   }
+   if (PORT == 'B')
+   {
+       x = DATA_B;
+   }
+   if (PORT == 'C')
+   {
+       x = DATA_C;
+   }
+   if (PORT == 'D')
+   {
+       x = DATA_D;
+   }
+   if (PORT == 'E')
+   {
+       x = DATA_E;
+   }
+   if (PORT == 'F')
+   {
+       x = DATA_F;
+   }
+   switch (PIN)
+   {
+   case 0: x |= (1 << 0); break;
+   case 1: x |= (1 << 1); break;
+   case 2: x |= (1 << 2); break;
+   case 3: x |= (1 << 3); break;
+   case 4: x |= (1 << 4); break;
+   case 5: x |= (1 << 5); break;
+   case 6: x |= (1 << 6); break;
+   case 7: x |= (1 << 7); break;
+   }
 
-	if (DIR == 0)
-	{
-		switch (PORT)
-		{
-		case A: DIR_A &= (0 << PIN); break;
-		case B: DIR_B &= (0 << PIN); break;
-		case C: DIR_C &= (0 << PIN); break;
-		case D: DIR_D &= (0 << PIN); break;
-		case E: DIR_E &= (0 << PIN); break;
-		case F: DIR_F &= (0 << PIN); break;
-		}
-	}
-	if (DIR == 1)
-	{
-		switch (PORT)
-		{
-		case A: DIR_A |= (1 << p); break;
-		case B: DIR_B |= (1 << p); break;
-		case C: DIR_C |= (1 << p); break;
-		case D: DIR_D |= (1 << p); break;
-		case E: DIR_E |= (1 << p); break;
-		case F: DIR_F |= (1 << p); break;
-		}
-	}
-	
-}
-
-
+   if (DIR == 0)
+   {
+       switch (PORT)
+       {
+       case 'A': DIR_A &= (0 << PIN); break;
+       case 'B': DIR_B &= (0 << PIN); break;
+       case 'C': DIR_C &= (0 << PIN); break;
+       case 'D': DIR_D &= (0 << PIN); break;
+       case 'E': DIR_E &= (0 << PIN); break;
+       case 'F': DIR_F &= (0 << PIN); break;
+       }
+   }
+   if (DIR == 1)
+   {
+       switch (PORT)
+       {
+       case 'A': DIR_A |= (1 << PIN); break;
+       case 'B': DIR_B |= (1 << PIN); break;
+       case 'C': DIR_C |= (1 << PIN); break;
+       case 'D': DIR_D |= (1 << PIN); break;
+       case 'E': DIR_E |= (1 << PIN); break;
+       case 'F': DIR_F |= (1 << PIN); break;
+       }
